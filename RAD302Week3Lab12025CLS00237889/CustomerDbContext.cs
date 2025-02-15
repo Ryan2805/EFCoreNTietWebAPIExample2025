@@ -9,41 +9,33 @@ using Tracker.WebAPIClient;
 
 namespace RAD302Week3Lab12025CLS00237889
 {
-    class CustomerDbContext : DbContext
+    public class CustomerDbContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
 
         public CustomerDbContext()
         {
-
         }
-
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var myconnectionstring = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = CustomerCoreDB";
-            optionsBuilder.UseSqlServer(myconnectionstring)
+            var myConnectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = CustomerCoreDB";
+
+            optionsBuilder.UseSqlServer(myConnectionString)
                 .LogTo(Console.WriteLine,
-                new[] { DbLoggerCategory.Database.Command.Name },
-                LogLevel.Information);
+                    new[] { DbLoggerCategory.Database.Command.Name },
+                    LogLevel.Information);
 
             ActivityAPIClient.Track(
-            StudentID: "S00237889",         
-            StudentName: "Ryan Daly",      
-            activityName: "Rad302 Week 3 Lab 1",
-            Task: "Creating Customer DB Schema"
+                StudentID: "S00237889",
+                StudentName: "Ryan Daly",
+                activityName: "Rad302 Week 3 Lab 1",
+                Task: "Creating Customer DB Schema"
             );
-
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /* ActivityAPIClient.Track(
-                 StudentID: "S00237889",
-                 StudentName: "Ryan Daly",
-                 activityName: "Rad302 Week 3 Lab 1",
-                 Task: "Seeding Customer Data"
-             ); */
-
             ActivityAPIClient.Track(
                 StudentID: "S00237889",
                 StudentName: "Ryan Daly",
@@ -91,6 +83,6 @@ namespace RAD302Week3Lab12025CLS00237889
 
             base.OnModelCreating(modelBuilder);
         }
-
     }
 }
+

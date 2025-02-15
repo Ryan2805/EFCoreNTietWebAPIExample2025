@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RAD302Week3Lab12025CLS00237889
 {
-    internal class Customer
+    public  class Customer
     {
         [Key]
         [Display(Name = "Customer Number")] 

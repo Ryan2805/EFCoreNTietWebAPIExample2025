@@ -9,6 +9,6 @@ namespace RAD302Week3Lab12025CLS00237889
     public interface ICustomer<T> : IRepository<T> where T : Customer
     {
         // Might want to implement specific Product functionality Later
-    
+        bool CheckCredit(int customerId, float amount);
     }
 }

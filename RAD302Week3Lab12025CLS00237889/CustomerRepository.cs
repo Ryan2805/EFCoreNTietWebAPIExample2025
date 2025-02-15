@@ -55,6 +55,15 @@ namespace RAD302Week3Lab12025CLS00237889
         {
             context.Customers.RemoveRange(entities);
         }
+        public bool CheckCredit(int customerId, float amount)
+        {
+            var customer = context.Customers.Find(customerId);
+            if (customer != null)
+            {
+                return amount <= customer.CreditRating;
+            }
+            return false; 
+        }
 
         public void Dispose()
         {
